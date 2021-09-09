@@ -2,21 +2,22 @@ package com.company;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
         FileWriter csvWriter = new FileWriter("new.csv");
-        csvWriter.append("T(n)");
-        csvWriter.append(",");
         csvWriter.append("N");
+        csvWriter.append(",");
+        csvWriter.append("T(n)");
         csvWriter.append("\n");
 
         int j;
-        for(j=0; j<15; j++){
+        for(j=1; j<20; j++){
             int i, aleatorio, cont=0;
-            int n= j*2;//Integer.parseInt(System.console().readLine());
+            int n= j*2;
             //Creamos y llenamos los arreglos de manera aleatoria
             int[] A = new int[n], B = new int [n], C =new int[n];
             for (i=0; i<n; i++){
@@ -35,18 +36,34 @@ public class Main {
                 }
                 B[i]= aleatorio;
             }
+
             //Convertimos el binario a decimal
-            int decimal=0, exponente=n-1;
-            for(i=0;i<n;i++){
-                C[i]= A[i] & B[i];
-                decimal += (C[i] * (int) Math.pow(2,exponente));
-                exponente--;
+            long decimal=0;
+            cont++;
+            double auxiliar = 0.5;
+            cont++;
+            for(i=n-1;i>1;i--){
+                cont++;
+                C[i]=0;
+                cont++;
+                //C[i]= A[i] & B[i];
+                cont++;
+                if(A[i] ==1 && B[i]==1){
+                    C[i] =1;
+                    cont++;
+                }
+                cont++;
+                auxiliar = auxiliar * 2;
+                cont++;
+                decimal += C[i] *  auxiliar;
+                cont++;
+                //decimal += (C[i] * (int) Math.pow(2,exponente));
             }
             System.out.println("Decimal es " + decimal);
-
-            csvWriter.append(String.valueOf(cont));
-            csvWriter.append(",");
+            cont++;
             csvWriter.append(String.valueOf(n));
+            csvWriter.append(",");
+            csvWriter.append(String.valueOf(cont));
             csvWriter.append("\n");
 
             csvWriter.flush();
