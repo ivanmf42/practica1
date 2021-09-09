@@ -4,6 +4,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
+
+/*
+*Instituto Politécnico Nacional
+* Escuela Superior de Cómputo
+* Análisis de Algoritmos
+* Autor: Iván Martínez Fuentes
+* Profesor: Benjamín Luna Benoso
+ */
+
 public class Main {
 
     public static void main(String[] args) throws IOException {
@@ -52,13 +61,13 @@ public class Main {
                     C[i] =1;
                     cont++;
                 }
-                cont++;
                 auxiliar = auxiliar * 2;
                 cont++;
                 decimal += C[i] *  auxiliar;
                 cont++;
                 //decimal += (C[i] * (int) Math.pow(2,exponente));
             }
+            cont++;
             System.out.println("Decimal es " + decimal);
             cont++;
             csvWriter.append(String.valueOf(n));
